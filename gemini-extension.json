@@ -1,0 +1,12 @@
+{
+  "name": "emboss",
+  "version": "1.0.0",
+  "description": "Fill PDF forms with Emboss: make a flat PDF fillable, fill it from notes or documents, or fill it for every row of a spreadsheet.",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "emboss": {
+      "httpUrl": "https://api.getemboss.ai/mcp",
+      "timeout": 300000
+    }
+  }
+}

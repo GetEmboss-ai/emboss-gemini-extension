@@ -1,0 +1,1 @@
+{ "$schema": "https://antigravity.google/schemas/v1/plugin.json", "name": "emboss", "description": "Fill PDF forms with Emboss: make a flat PDF fillable, fill it from notes or documents, or fill it for every row of a spreadsheet." }
