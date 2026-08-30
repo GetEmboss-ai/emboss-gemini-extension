@@ -44,7 +44,7 @@ run `agy plugin list` to confirm the path on your machine):
     "emboss": {
       "serverUrl": "https://api.getemboss.ai/mcp",
       "headers": {
-        "Authorization": "Bearer sk_your_emboss_api_key"
+        "Authorization": "Bearer sk_live_yourkey"
       }
     }
   }
