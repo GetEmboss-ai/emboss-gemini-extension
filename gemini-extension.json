@@ -1,7 +1,7 @@
 {
   "name": "emboss",
-  "version": "1.0.0",
-  "description": "Fill PDF forms with Emboss: make a flat PDF fillable, fill it from notes or documents, or fill it for every row of a spreadsheet.",
+  "version": "1.1.0",
+  "description": "Emboss turns any PDF form into a fillable one, fills it from data or supporting documents, reads a filled form back, and faxes the result to any fax number.",
   "contextFileName": "GEMINI.md",
   "mcpServers": {
     "emboss": {

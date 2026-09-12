@@ -1,1 +1,1 @@
-{ "$schema": "https://antigravity.google/schemas/v1/plugin.json", "name": "emboss", "description": "Fill PDF forms with Emboss: make a flat PDF fillable, fill it from notes or documents, or fill it for every row of a spreadsheet." }
+{ "$schema": "https://antigravity.google/schemas/v1/plugin.json", "name": "emboss", "description": "Emboss turns any PDF form into a fillable one, fills it from data or supporting documents, reads a filled form back, and faxes the result to any fax number." }

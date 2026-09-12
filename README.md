@@ -1,8 +1,9 @@
 # Emboss for Gemini CLI and Antigravity
 
-Fill PDF forms without leaving your terminal. Emboss makes a flat PDF
-fillable, fills it from notes or a document, or fills it once per row of a
-spreadsheet, all through Emboss's remote MCP server.
+Fill PDF forms without leaving your terminal. Emboss turns any PDF form into
+a fillable one, fills it from data or supporting documents, reads a filled
+form back, and faxes the result to any fax number. All through Emboss's
+remote MCP server.
 
 ## What it does
 
@@ -13,6 +14,7 @@ spreadsheet, all through Emboss's remote MCP server.
 - **Fill from context**: point at notes, a document, or pasted text and let
   Emboss pull out the answers.
 - **Fill a batch**: fill the same form once per row of a CSV or spreadsheet.
+- **Fax the result**: send a finished PDF to any fax number and track delivery.
 
 ## Install in Gemini CLI
 
