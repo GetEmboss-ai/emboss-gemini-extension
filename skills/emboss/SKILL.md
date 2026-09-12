@@ -6,7 +6,8 @@ description: Fill PDF forms with Emboss. Use when the user has a flat or scanned
 # Emboss
 
 Emboss turns flat PDF forms into fillable AcroForm PDFs and fills them from
-values, from documents or notes, or from a spreadsheet. Every operation is
+values, from documents or notes, or from a spreadsheet, and faxes a finished
+PDF to any fax number. Every operation is
 billed to the user's Emboss account. The first 5 form creations, 5 context
 fills, and 5 standard fills each month are free; free operations are limited
 to 5-page forms. `suggest_mapping` is billed as one context fill even when
@@ -23,6 +24,7 @@ called without an explicit `mapping`.
 | Fill one form per row of a spreadsheet/CSV | `suggest_mapping`, confirm the mapping with the user, then `fill_batch`, then poll `get_batch` |
 | Check remaining free operations or billing | `get_usage` |
 | Reuse a form already uploaded | `list_forms` first, instead of `create_form` |
+| Fax a finished PDF to a number | `send_fax` with `to` in E.164 form and the `job_id` from `commit_proposal` or `fill_form_from_context` once `get_job` is ready (or a `form_id`, or `pdf_url` / `pdf_base64`), then poll `get_fax` |
 
 ## Rules
 
@@ -48,6 +50,10 @@ called without an explicit `mapping`.
   full.
 - Only call `delete_form` when the user explicitly asks to delete a form.
   It is permanent.
+- Before `send_fax`, confirm the destination number with the user and show
+  it back in E.164 form (for example +15025551212). Faxes are billed per
+  page at delivery; a failed fax is not charged. Poll `get_fax` about every
+  20 seconds until `status` is `delivered` or `failed`.
 
 ## Getting the PDF in
 
