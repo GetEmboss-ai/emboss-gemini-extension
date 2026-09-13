@@ -19,7 +19,7 @@ called without an explicit `mapping`.
 | Fill one form per row of a spreadsheet/CSV | `suggest_mapping`, confirm the mapping with the user, then `fill_batch`, then poll `get_batch` |
 | Check remaining free operations or billing | `get_usage` |
 | Reuse a form already uploaded | `list_forms` first, instead of `create_form` |
-| Fax a finished PDF to a number | `send_fax` with `to` in E.164 form and an `artifact_id` from any earlier result (or the `job_id` from `commit_proposal` or `fill_form_from_context` once `get_job` is ready, a `form_id`, or `pdf_url` / `pdf_base64`), then poll `get_fax` |
+| Fax a finished PDF to a number | `send_fax` with `to` in E.164 form and an `artifact_id` from any earlier result (or the `job_id` from `commit_proposal` or `fill_form_from_context` once `get_job` is ready, a `form_id`, or `pdf_url` / `pdf_base64`), then poll `get_fax`. A `sources` list faxes several artifacts as one packet: each entry is an `artifact_id` with an optional `pages` range; pay-per-call callers add an `artifact_token` per entry. |
 
 ## Rules
 
