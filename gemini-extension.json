@@ -1,6 +1,6 @@
 {
   "name": "emboss",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Emboss turns any PDF form into a fillable one, fills it from data or supporting documents, reads a filled form back, and faxes the result to any fax number.",
   "contextFileName": "GEMINI.md",
   "mcpServers": {
