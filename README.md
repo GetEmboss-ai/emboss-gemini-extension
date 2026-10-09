@@ -14,6 +14,13 @@ remote MCP server.
 - **Fill from context**: point at notes, a document, or pasted text and let
   Emboss pull out the answers.
 - **Fill a batch**: fill the same form once per row of a CSV or spreadsheet.
+- **Start from a government form**: find a blank US federal form such as a
+  W-9 in Emboss's library and fill it without uploading anything.
+- **Review before writing**: see every proposed answer with its source and
+  what is missing, attach supporting documents, then write the form or one
+  submission package.
+- **Check or read back**: check a filled form for missing or invalid
+  answers, or read its values back out.
 - **Fax the result**: send a finished PDF to any fax number and track delivery.
 
 ## Install in Gemini CLI
@@ -75,8 +82,9 @@ Both clients also accept a hand-written `mcpServers` entry in their
 
 ## Pricing
 
-The first 5 form creations, 5 context fills, and 5 standard fills each month
-are free; free operations are limited to 5-page forms. See
+The first 5 form creations, 5 context fills, 5 standard fills, 5 checks, 5
+read-backs and 5 packages each month are free; free operations are limited
+to 5-page forms. See
 [getemboss.ai/pricing](https://getemboss.ai/pricing) for full pricing.
 
 ## Privacy

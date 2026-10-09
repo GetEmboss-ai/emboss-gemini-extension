@@ -4,8 +4,8 @@ Emboss turns flat PDF forms into fillable AcroForm PDFs and fills them from
 values, from documents or notes, or from a spreadsheet, and faxes a finished
 PDF to any fax number. Every operation is
 billed to the user's Emboss account. The first 5 form creations, 5 context
-fills, and 5 standard fills each month are free; free operations are limited
-to 5-page forms. `suggest_mapping` is billed as one context fill even when
+fills, 5 standard fills, 5 checks, 5 read-backs and 5 packages each month are
+free; free operations are limited to 5-page forms. `suggest_mapping` is billed as one context fill even when
 called on its own, and `fill_batch` runs it automatically (also billed) if
 called without an explicit `mapping`.
 
@@ -16,6 +16,10 @@ called without an explicit `mapping`.
 | Make a flat PDF fillable | `create_form`, then `get_form` |
 | Fill a form from values you already have | `get_form` (to see fields), then `fill_form` |
 | Fill a form from a document, notes, or pasted text | `fill_form_from_context`, then poll `get_job` |
+| Start from a blank government form (W-9, SS-4, and other US federal forms) | `find_form` once with the whole name or number, then `create_form` (or `fill_form_from_context`) with `library` set to the match's `slug` |
+| Let the user review every answer and its source before anything is written, or build a submission package with attachments | `prepare_form`, poll `get_job` until ready, `get_proposal` to read the answers and open questions, `add_attachment` for documents the form asks for, then `commit_proposal` (`package` true for one package), then poll `get_job` |
+| Check a filled form for missing or invalid answers | `verify_form` with the `form_id` and the filled PDF |
+| Read the values out of a filled PDF | `read_form` (add `form_id` when known for labels and a completeness verdict) |
 | Fill one form per row of a spreadsheet/CSV | `suggest_mapping`, confirm the mapping with the user, then `fill_batch`, then poll `get_batch` |
 | Check remaining free operations or billing | `get_usage` |
 | Reuse a form already uploaded | `list_forms` first, instead of `create_form` |
@@ -41,6 +45,20 @@ called without an explicit `mapping`.
   payment method is needed to continue.
 - On `unsupported_file`, tell the user to export the document to PDF first;
   Emboss only accepts PDFs.
+- When `get_job` comes back `ready` with `no_values_found` in its
+  `warnings`, nothing was filled: relay its `message` as it is. To try again
+  with a clearer document, call `fill_form_from_context` with the same
+  `form_id` rather than the PDF, so the form is not created (and billed) a
+  second time.
+- On `document_same_as_form`, relay the message: the document the user
+  added is the blank form itself. Ask for the document that holds the
+  answers.
+- On `documents_deleted`, the form's files were already deleted under
+  ephemeral processing; ask the user to upload the form again.
+- On `conflicting_values`, two boxes in one Yes/No question were set to
+  yes; ask the user which one they meant.
+- Call `find_form` once with the user's whole query, not as they type: each
+  search spends one of the account's rate-limit slots.
 - Never paste long context text back into the chat. Summarize what was sent
   (e.g. "sent the 2-page intake note as context") instead of quoting it in
   full.
