@@ -52,16 +52,18 @@ called without an explicit `mapping`.
   Emboss only accepts PDFs.
 - When `get_job` comes back `ready` with `no_values_found` in its
   `warnings`, nothing was filled: relay its `message` as it is. To try again
-  with a clearer document, call `fill_form_from_context` with the same
-  `form_id` rather than the PDF, so the form is not created (and billed) a
-  second time.
+  with a clearer document, call `fill_form_from_context` with the `form_id`
+  that `get_job` returned rather than the PDF or the library form, so the
+  form is not created (and billed) a second time.
 - On `document_same_as_form`, relay the message: the document the user
   added is the blank form itself. Ask for the document that holds the
   answers.
 - On `documents_deleted`, the form's files were already deleted under
   ephemeral processing; ask the user to upload the form again.
-- On `conflicting_values`, two boxes in one Yes/No question were set to
-  yes; ask the user which one they meant.
+- On `conflicting_values` from `fill_form`, two boxes in one Yes/No
+  question were set to yes; ask the user which one they meant.
+  `commit_proposal` reports the same mistake as `bad_request` with the
+  boxes' `field_ids`.
 - Call `find_form` once with the user's whole query, not as they type: each
   search spends one of the account's rate-limit slots.
 - Never paste long context text back into the chat. Summarize what was sent
