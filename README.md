@@ -2,7 +2,7 @@
 
 Fill PDF forms without leaving your terminal. Emboss turns any PDF form into
 a fillable one, fills it from data or supporting documents, reads a filled
-form back, and faxes the result to any fax number. All through Emboss's
+form back, and faxes the result to a US, Canadian or Mexican fax number. All through Emboss's
 remote MCP server.
 
 ## What it does
@@ -21,7 +21,7 @@ remote MCP server.
   submission package.
 - **Check or read back**: check a filled form for missing or invalid
   answers, or read its values back out.
-- **Fax the result**: send a finished PDF to any fax number and track delivery.
+- **Fax the result**: send a finished PDF to a US, Canadian or Mexican fax number and track delivery.
 
 ## Install in Gemini CLI
 
@@ -53,14 +53,14 @@ run `agy plugin list` to confirm the path on your machine):
     "emboss": {
       "serverUrl": "https://api.getemboss.ai/mcp",
       "headers": {
-        "Authorization": "Bearer sk_live_yourkey"
+        "Authorization": "Bearer sk_..."
       }
     }
   }
 }
 ```
 
-Get an API key from your Emboss Dashboard, then Account, then API keys.
+Get an API key from the API Keys page of your Emboss Dashboard.
 Never commit a key to source control.
 
 ## Manual alternative
@@ -83,8 +83,8 @@ Both clients also accept a hand-written `mcpServers` entry in their
 ## Pricing
 
 The first 5 form creations, 5 context fills, 5 standard fills, 5 checks, 5
-read-backs and 5 packages each month are free; free operations are limited
-to 5-page forms. See
+read-backs and 5 packages each month are free when the job is 5 pages or
+fewer (a fill from documents counts the form and its documents together). See
 [getemboss.ai/pricing](https://getemboss.ai/pricing) for full pricing.
 
 ## Privacy
