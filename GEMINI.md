@@ -3,7 +3,8 @@
 Emboss turns flat PDF forms into fillable AcroForm PDFs and fills them from
 values, from documents or notes, or from a spreadsheet, and faxes a finished
 PDF to a US, Canadian or Mexican fax number. Paid operations are billed to the
-user's Emboss account; reads, attachments and the PDF page tools are free. The
+user's Emboss account; lookups (listing forms and checking status), attachments
+and the PDF page tools are free. The
 first 5 form creations, 5 context fills, 5 standard fills, 5 checks, 5
 read-backs and 5 packages each month are free when the job is 5 pages or fewer
 (a fill from documents counts the form and its documents together); a longer
