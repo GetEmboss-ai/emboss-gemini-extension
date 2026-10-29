@@ -85,6 +85,16 @@ automatically (also billed) if called without an explicit `mapping`.
   Canadian and Mexican numbers. Faxes are billed per page at delivery and need
   a payment method on file; a failed fax is not charged. Poll `get_fax` about
   every 20 seconds until `status` is `delivered`, `failed` or `expired`.
+- Before a fill, fax or delete that costs money or can't be undone, you may call
+  the tool with `dry_run: true` and show the person the price and the outcome first.
+  Nothing is stored, charged or sent, and no AI is used. The answer says whether
+  the real call would succeed or be refused, what it would cost, and what a
+  rehearsal cannot check. The tools that take it are `delete_form`, `send_fax`,
+  `create_form`, `fill_form`, `fill_form_from_context`, `prepare_form`,
+  `suggest_mapping`, `fill_batch`, `commit_proposal`, `verify_form` and `read_form`.
+- Batch results come 100 rows at a time: pass `next_cursor` from a `get_batch`
+  answer as `cursor` to get the next page. `find_form` pages the same way (20
+  matches at a time, `limit` up to 50).
 
 ## Getting the PDF in
 
