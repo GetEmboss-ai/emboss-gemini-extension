@@ -14,7 +14,7 @@ remote MCP server.
 - **Fill from context**: point at notes, a document, or pasted text and let
   Emboss pull out the answers.
 - **Fill a batch**: fill the same form once per row of a CSV or spreadsheet.
-- **Start from a government form**: find a blank US federal form such as a
+- **Start from a government form**: find a blank government form such as a
   W-9 in Emboss's library and fill it without uploading anything.
 - **Review before writing**: see every proposed answer with its source and
   what is missing, attach supporting documents, then write the form or one

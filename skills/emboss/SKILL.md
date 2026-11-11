@@ -25,7 +25,7 @@ automatically (also billed) if called without an explicit `mapping`.
 | Make a flat PDF fillable | `create_form`, then `get_form` |
 | Fill a form from values you already have | `get_form` (to see fields), then `fill_form` |
 | Fill a form from a document, notes, or pasted text | `fill_form_from_context`, then poll `get_job` |
-| Start from a blank government form (W-9, SS-4, and other US federal forms) | `find_form` once with the whole name or number, then `create_form` (or `fill_form_from_context`) with `library` set to the match's `slug` |
+| Start from a blank government form (W-9, 1099-NEC, SS-4 and other government forms) | `find_form` once with the whole name or number, then `create_form` (or `fill_form_from_context`) with `library` set to the match's `slug` |
 | Let the user review every answer and its source before anything is written, or build a submission package with attachments | `prepare_form`, poll `get_job` until ready, `get_proposal` to read the answers and open questions, `add_attachment` for documents the form asks for, then `commit_proposal` (`package` true for one package), then poll `get_job` |
 | Check a filled form for missing or invalid answers | `verify_form` with the `form_id` and the filled PDF |
 | Read the values out of a filled PDF | `read_form` (add `form_id` when known for labels and a completeness verdict) |
