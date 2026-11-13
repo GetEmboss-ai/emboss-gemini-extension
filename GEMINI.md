@@ -75,16 +75,18 @@ automatically (also billed) if called without an explicit `mapping`.
   full.
 - Only call `delete_form` when the user explicitly asks to delete a form.
   It is permanent.
-- Before `send_fax`, confirm the destination number with the user and show
-  it back in E.164 form (for example +15025551212); Emboss faxes to US,
+- Before `send_fax`, confirm the destination number and the cost with the user
+  and show the number back in E.164 form (for example +15025551212); Emboss faxes to US,
   Canadian and Mexican numbers. Faxes are billed per page at delivery and need
   a payment method on file; a failed fax is not charged. Poll `get_fax` about
   every 20 seconds until `status` is `delivered`, `failed` or `expired`.
-- Before a fill, fax or delete that costs money or can't be undone, you may call
-  the tool with `dry_run: true` and show the person the price and the outcome first.
-  Nothing is stored, charged or sent, and no AI is used. The answer says whether
-  the real call would succeed or be refused, what it would cost, and what a
-  rehearsal cannot check. The tools that take it are `delete_form`, `send_fax`,
+- Before anything that costs money or can't be undone (a paid fill, a batch, a
+  fax or a delete), tell the person what you are about to do and what it will
+  cost, and wait for their yes. Never start a charged job, a fax or a delete
+  without it. To find the price without doing anything, call the tool with
+  `dry_run: true`: nothing is stored, charged or sent, and no AI is used. The
+  answer says whether the real call would succeed or be refused, what it would
+  cost, and what a rehearsal cannot check. The tools that take it are `delete_form`, `send_fax`,
   `create_form`, `fill_form`, `fill_form_from_context`, `prepare_form`,
   `suggest_mapping`, `fill_batch`, `commit_proposal`, `verify_form` and `read_form`.
 - Batch results come 100 rows at a time: pass `next_cursor` from a `get_batch`
