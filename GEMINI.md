@@ -99,7 +99,7 @@ Prefer, in order:
 2. A public `https` link to the PDF: pass it as `pdf_url`.
 3. `pdf_base64` for small files the user pasted, or that Gemini CLI can read
    from disk. Read the file and base64-encode it yourself. Keep base64
-   uploads under 10 MB; for anything larger, ask the user to host it
+   uploads under 25 MB; for anything larger, ask the user to host it
    somewhere with a public link and use `pdf_url` instead.
 
 The same choice applies to `context_urls` in `fill_form_from_context` and to
